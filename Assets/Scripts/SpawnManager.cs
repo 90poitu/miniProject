@@ -12,13 +12,6 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(ZombieSpawnRoutine());
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R) && _stopSpawning == true)
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
     IEnumerator ZombieSpawnRoutine()
     {
         while (_stopSpawning == false)

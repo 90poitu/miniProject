@@ -15,9 +15,11 @@ public class Click : MonoBehaviour
     [SerializeField] private float _MaxScoreAmount;
     [SerializeField] private float _totalScore;
     [SerializeField] private SpawnManager _spawnManager;
+    [SerializeField] private GameManager _gameManager;
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _UImanager.updateHealth(_Health);
     }
     void Update()
@@ -60,6 +62,7 @@ public class Click : MonoBehaviour
         {
             _spawnManager.stopSpawningZombies();
             StartCoroutine(_UImanager.gameOverFlickeringTextRoutine());
+            _gameManager.gameOver();
         }
     }
     public void AddScore()
