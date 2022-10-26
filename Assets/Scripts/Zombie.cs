@@ -34,10 +34,11 @@ public class Zombie : MonoBehaviour
     {
         _hp -= damage;
         _uiManager.updateSlider(_zombieSider, _hp);
-        _click.AddScore();
 
         if (_hp < 0)
         {
+            _click.AddScore();
+            _click.UpdateKills();
             Destroy(this.gameObject);
         }
     }

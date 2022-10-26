@@ -202,6 +202,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165864384}
   m_CullTransparentMesh: 1
+--- !u!1 &257515856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257515857}
+  - component: {fileID: 257515859}
+  - component: {fileID: 257515858}
+  m_Layer: 5
+  m_Name: killAmountText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &257515857
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257515856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2052133692}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -412.24}
+  m_SizeDelta: {x: 160, y: 27.5828}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &257515858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257515856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 238
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Kill: 0'
+--- !u!222 &257515859
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257515856}
+  m_CullTransparentMesh: 1
 --- !u!1 &259635176
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGameOver: 0
+  _uiManager: {fileID: 1654602826}
 --- !u!4 &259635178
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zombiePrefab: {fileID: 7930507056588866091, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
   _ZombieContainer: {fileID: 776698186}
-  _spawnRate: 2
+  _spawnRate: 2.5
   _stopSpawning: 0
 --- !u!4 &570086679
 Transform:
@@ -516,15 +596,11 @@ MonoBehaviour:
   _targetDistance: 100
   _score: 0
   _UImanager: {fileID: 1654602826}
-  _Health: 10
-  _MinDamage: 0
-  _MaxDamage: 2
-  _totalDamage: 0
-  _MinScoreAmount: 0
-  _MaxScoreAmount: 7.5
-  _totalScore: 0
+  _Health: 3
+  _Damage: 1
   _spawnManager: {fileID: 0}
   _gameManager: {fileID: 0}
+  _kills: 0
 --- !u!65 &963194230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -876,6 +952,7 @@ MonoBehaviour:
   _scoreContainer: {fileID: 2052133692}
   _gameOverText: {fileID: 1175614767}
   _pressRtoRestartText: {fileID: 1607336468}
+  _killAmountText: {fileID: 257515858}
 --- !u!4 &1654602827
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,6 +1157,7 @@ RectTransform:
   - {fileID: 165864385}
   - {fileID: 1175614766}
   - {fileID: 1607336467}
+  - {fileID: 257515857}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

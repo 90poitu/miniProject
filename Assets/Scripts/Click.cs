@@ -8,14 +8,10 @@ public class Click : MonoBehaviour
     [SerializeField] private int _score;
     [SerializeField] private UImanager _UImanager;
     [SerializeField] private float _Health = 10;
-    [SerializeField] private float _MinDamage;
-    [SerializeField] private float _MaxDamage;
-    [SerializeField] private float _totalDamage;
-    [SerializeField] private float _MinScoreAmount;
-    [SerializeField] private float _MaxScoreAmount;
-    [SerializeField] private float _totalScore;
+    [SerializeField] private float _Damage =2.5f;
     [SerializeField] private SpawnManager _spawnManager;
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private int _kills;
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -38,14 +34,10 @@ public class Click : MonoBehaviour
                 switch (hit.transform.tag)
                 {
                     case "Zombie":
-                    float randomScoreEarned = Random.Range(_MinScoreAmount, _MaxScoreAmount);
-                    float randomDamage = Random.Range(_MinDamage, _MaxDamage);
-                    _totalScore += randomScoreEarned;
-                    _totalDamage =+ randomDamage;
                     Zombie zombie = hit.transform.GetComponent<Zombie>();
-                    zombie.damageZombie(_totalDamage);
-                    _UImanager.updateScore(_totalScore);
-                    _UImanager.updateIndicatorMessage(randomScoreEarned, _totalDamage);
+                    zombie.damageZombie(_Damage);
+                    _UImanager.updateScore(_score);
+                    _UImanager.updateIndicatorMessage(1, _Damage);
                      break;
                 }
             }
@@ -68,5 +60,11 @@ public class Click : MonoBehaviour
     public void AddScore()
     {
         _score++;
+    }
+
+    public void UpdateKills()
+    {
+        _kills++;
+        _UImanager.updateKillAmount(_kills);
     }
 }
