@@ -38,7 +38,6 @@ public class Zombie : MonoBehaviour
 
         if (_hp < 0)
         {
-            _click.AddScore();
             _click.UpdateKills();
             _click.targetGoal();
             Destroy(this.gameObject);

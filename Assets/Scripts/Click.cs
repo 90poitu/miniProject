@@ -6,7 +6,6 @@ using UnityEngine;
 public class Click : MonoBehaviour
 {
     [SerializeField] private float _targetDistance = 100;
-    [SerializeField] private int _score;
     [SerializeField] private UImanager _UImanager;
     [SerializeField] private float _Health = 10;
     [SerializeField] private float _Damage = 2.5f;
@@ -23,6 +22,7 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
+        _UImanager.updateTime(Time.timeSinceLevelLoad);
         click();
     }
     void click()
@@ -39,7 +39,6 @@ public class Click : MonoBehaviour
                     case "Zombie":
                     Zombie zombie = hit.transform.GetComponent<Zombie>();
                     zombie.damageZombie(_Damage);
-                    _UImanager.updateScore(_score);
                     _UImanager.updateIndicatorMessage(_Damage);
                      break;
                 }
@@ -60,10 +59,6 @@ public class Click : MonoBehaviour
             _gameManager.gameOver();
             _spawnManager.killAllZombies();
         }
-    }
-    public void AddScore()
-    {
-        _score++;
     }
 
     public void UpdateKills()

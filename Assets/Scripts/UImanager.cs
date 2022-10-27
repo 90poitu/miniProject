@@ -14,7 +14,6 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _killAmountText;
     [SerializeField] private Text _targetKillText;
     [SerializeField] private Text _winText;
-    [SerializeField] private GameObject _panel;
     void Start()
     {
         if (_scoreText.gameObject.activeInHierarchy && _hpText.gameObject.activeInHierarchy
@@ -23,14 +22,14 @@ public class UImanager : MonoBehaviour
             _pressRtoRestartText.gameObject.activeInHierarchy
             && _killAmountText.gameObject.activeInHierarchy && 
             _targetKillText.gameObject.activeInHierarchy &&
-            _winText.gameObject.activeInHierarchy && _panel.activeInHierarchy == false)
+            _winText.gameObject.activeInHierarchy == false)
         {
             enableAllText();
         }
     }
-    public void updateScore(float _score)
+    public void updateTime(float _score)
     {
-        _scoreText.text = "Score: " + _score.ToString("f2");
+        _scoreText.text = "Time: " + _score.ToString("f2");
     }
     public void updateHealth(float _hp)
     {
@@ -61,7 +60,6 @@ public class UImanager : MonoBehaviour
         {
             _gameOverText.gameObject.SetActive(true);
             _pressRtoRestartText.gameObject.SetActive(true);
-            _panel.gameObject.SetActive(true);
             _gameOverText.text = "GAME OVER";
             yield return new WaitForSeconds(.5f);
             _gameOverText.text = "";
@@ -73,7 +71,6 @@ public class UImanager : MonoBehaviour
         while (true)
         {
             _pressRtoRestartText.gameObject.SetActive(true);
-            _panel.gameObject.SetActive(true);
             _winText.gameObject.SetActive(true);
             _winText.text = "YOU WON";
             yield return new WaitForSeconds(.5f);
