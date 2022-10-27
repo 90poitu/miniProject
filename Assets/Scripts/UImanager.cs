@@ -14,6 +14,8 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _killAmountText;
     [SerializeField] private Text _targetKillText;
     [SerializeField] private Text _winText;
+    [SerializeField] private Text _pressAnyKeyToStartText;
+    [SerializeField] private GameManager _gameManager;
     void Start()
     {
         if (_scoreText.gameObject.activeInHierarchy && _hpText.gameObject.activeInHierarchy
@@ -56,6 +58,13 @@ public class UImanager : MonoBehaviour
     public void updateZombieText(Text text, float zombieHp, Slider slider)
     {
         text.text = zombieHp + " / " + slider.maxValue;
+    }
+
+    public void GameStart()
+    {
+        _pressAnyKeyToStartText.gameObject.SetActive(false);
+        _gameManager.isUnPause();
+        _gameManager.hasStarted();
     }
     public IEnumerator gameOverFlickeringTextRoutine()
     {

@@ -7,17 +7,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _isGameOver;
     [SerializeField] private UImanager _uiManager;
     [SerializeField] private bool _isPause;
+    [SerializeField] private bool _isStarted;
+    void Start()
+    {
+        isPause();
+    }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B) && Time.timeScale == 0)
+        {
+            _uiManager.GameStart();
+        }
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver)
         {
             restartLevel();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > 0 && !_isGameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && !_isGameOver && _isStarted)
         {
             isPause();
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && _isPause)
+        else if (Input.GetKeyUp(KeyCode.Space) && _isPause && _isStarted)
         {
             isUnPause();
         }
@@ -42,5 +51,9 @@ public class GameManager : MonoBehaviour
     public void restartLevel()
     {
         SceneManager.LoadScene(0);
+    }
+    public void hasStarted()
+    {
+        _isStarted = true;
     }
 }
