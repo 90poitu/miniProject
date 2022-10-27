@@ -53,7 +53,10 @@ public class UImanager : MonoBehaviour
     {
         slider.value = SliderAmount;
     }
-
+    public void updateZombieText(Text text, float zombieHp, Slider slider)
+    {
+        text.text = zombieHp + " / " + slider.maxValue;
+    }
     public IEnumerator gameOverFlickeringTextRoutine()
     {
         while (true)

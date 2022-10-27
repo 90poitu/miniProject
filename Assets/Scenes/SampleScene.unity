@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGameOver: 0
   _uiManager: {fileID: 1654602826}
+  _isPause: 0
 --- !u!4 &259635178
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1c80511f02c204aa35d83d8ddcc107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zombiePrefab: {fileID: 7930507056588866091, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
+  _zombiePrefabs:
+  - {fileID: 7930507056588866091, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
+  - {fileID: 7588913650565536801, guid: 7c4f385405976d24d83cea0cd4e4ab51, type: 3}
   _ZombieContainer: {fileID: 776698186}
   _spawnRate: 2.5
   _stopSpawning: 0
@@ -594,7 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetDistance: 100
-  _score: 0
   _UImanager: {fileID: 1654602826}
   _Health: 3
   _Damage: 2
