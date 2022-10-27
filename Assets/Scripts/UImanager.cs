@@ -13,6 +13,8 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _pressRtoRestartText;
     [SerializeField] private Text _killAmountText;
     [SerializeField] private Text _targetKillText;
+    [SerializeField] private Text _winText;
+    [SerializeField] private GameObject _panel;
     void Start()
     {
         if (_scoreText.gameObject.activeInHierarchy && _hpText.gameObject.activeInHierarchy
@@ -20,7 +22,8 @@ public class UImanager : MonoBehaviour
             _gameOverText.gameObject.activeInHierarchy &&
             _pressRtoRestartText.gameObject.activeInHierarchy
             && _killAmountText.gameObject.activeInHierarchy && 
-            _targetKillText.gameObject.activeInHierarchy == false)
+            _targetKillText.gameObject.activeInHierarchy &&
+            _winText.gameObject.activeInHierarchy && _panel.activeInHierarchy == false)
         {
             enableAllText();
         }
@@ -58,9 +61,23 @@ public class UImanager : MonoBehaviour
         {
             _gameOverText.gameObject.SetActive(true);
             _pressRtoRestartText.gameObject.SetActive(true);
+            _panel.gameObject.SetActive(true);
             _gameOverText.text = "GAME OVER";
             yield return new WaitForSeconds(.5f);
             _gameOverText.text = "";
+            yield return new WaitForSeconds(.5f);
+        }
+    }
+    public IEnumerator GameWinTextFlickeringRoutine()
+    {
+        while (true)
+        {
+            _pressRtoRestartText.gameObject.SetActive(true);
+            _panel.gameObject.SetActive(true);
+            _winText.gameObject.SetActive(true);
+            _winText.text = "YOU WON";
+            yield return new WaitForSeconds(.5f);
+            _winText.text = "";
             yield return new WaitForSeconds(.5f);
         }
     }
@@ -73,6 +90,7 @@ public class UImanager : MonoBehaviour
         _pressRtoRestartText.gameObject.SetActive(false);
         _killAmountText.gameObject.SetActive(false);
         _targetKillText.gameObject.SetActive(false);
+        _winText.gameObject.SetActive(false);
     }
     public void enableAllText()
     {
@@ -82,5 +100,6 @@ public class UImanager : MonoBehaviour
         _pressRtoRestartText.gameObject.SetActive(true);
         _killAmountText.gameObject.SetActive(true);
         _targetKillText.gameObject.SetActive(true);
+        _winText.gameObject.SetActive(true);
     }
 }

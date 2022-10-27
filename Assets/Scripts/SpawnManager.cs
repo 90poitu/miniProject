@@ -12,6 +12,9 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(ZombieSpawnRoutine());
     }
+    void Update()
+    {
+    }
     IEnumerator ZombieSpawnRoutine()
     {
         while (_stopSpawning == false)
@@ -23,4 +26,15 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void stopSpawningZombies() => _stopSpawning = true;
+
+    public void killAllZombies()
+    {
+        if (_stopSpawning)
+        {
+            for (int i = 0; i < _ZombieContainer.childCount; i++)
+            {
+                Destroy(_ZombieContainer.GetChild(i).gameObject);
+            }
+        }
+    }
 }
