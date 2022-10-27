@@ -12,13 +12,15 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _gameOverText;
     [SerializeField] private Text _pressRtoRestartText;
     [SerializeField] private Text _killAmountText;
+    [SerializeField] private Text _targetKillText;
     void Start()
     {
         if (_scoreText.gameObject.activeInHierarchy && _hpText.gameObject.activeInHierarchy
             && _scoreAddedText.gameObject.activeInHierarchy &&
             _gameOverText.gameObject.activeInHierarchy &&
             _pressRtoRestartText.gameObject.activeInHierarchy
-            && _killAmountText.gameObject.activeInHierarchy == false)
+            && _killAmountText.gameObject.activeInHierarchy && 
+            _targetKillText.gameObject.activeInHierarchy == false)
         {
             enableAllText();
         }
@@ -35,13 +37,15 @@ public class UImanager : MonoBehaviour
     {
         _killAmountText.text = "Kill: " + killAmount;
     }
-    public void updateIndicatorMessage(float amount, float damage)
+    public void updateKillTargetGoal(int currentKill, int targetGoal)
+    {
+        _targetKillText.text = "Kill: " + currentKill + " / "+ targetGoal;
+    }
+    public void updateIndicatorMessage(float damage)
     {
         Text text = Instantiate(_scoreAddedText);
         text.transform.SetParent(_scoreContainer);
-        RectTransform rect = text.transform.GetComponent<RectTransform>();
-        rect.anchoredPosition = Vector2.zero;
-        text.text = "+ " + amount.ToString("f2") + " DMG " + damage.ToString("f2");
+        text.text = "+ " + damage.ToString("f2");
     }
     public void updateSlider(Slider slider, float SliderAmount)
     {
@@ -68,6 +72,7 @@ public class UImanager : MonoBehaviour
         _gameOverText.gameObject.SetActive(false);
         _pressRtoRestartText.gameObject.SetActive(false);
         _killAmountText.gameObject.SetActive(false);
+        _targetKillText.gameObject.SetActive(false);
     }
     public void enableAllText()
     {
@@ -76,5 +81,6 @@ public class UImanager : MonoBehaviour
         _gameOverText.gameObject.SetActive(true);
         _pressRtoRestartText.gameObject.SetActive(true);
         _killAmountText.gameObject.SetActive(true);
+        _targetKillText.gameObject.SetActive(true);
     }
 }

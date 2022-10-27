@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private UImanager _uiManager;
     [SerializeField] private Click _click;
     [SerializeField] private Slider _zombieSider;
+    [SerializeField] private float _Damage = 2.5f;
     void OnEnable()
     {
         _uiManager = GameObject.Find("UImanager").GetComponent<UImanager>();
@@ -39,6 +40,7 @@ public class Zombie : MonoBehaviour
         {
             _click.AddScore();
             _click.UpdateKills();
+            _click.targetGoal();
             Destroy(this.gameObject);
         }
     }
@@ -51,7 +53,7 @@ public class Zombie : MonoBehaviour
 
             if (click != null)
             {
-                click.damagePlayer();
+                click.damagePlayer(_Damage);
             }
         }
     }

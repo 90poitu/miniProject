@@ -402,6 +402,7 @@ MonoBehaviour:
   _uiManager: {fileID: 0}
   _click: {fileID: 0}
   _zombieSider: {fileID: 5650354026648578988}
+  _Damage: 1.5
 --- !u!54 &-866139960559944757
 Rigidbody:
   m_ObjectHideFlags: 0
