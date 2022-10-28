@@ -18,6 +18,7 @@ public class Click : MonoBehaviour
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _UImanager.updateHealth(_Health);
+        _UImanager.updateAttackText(_Damage);
         targetGoal();
     }
     void Update()
@@ -77,5 +78,17 @@ public class Click : MonoBehaviour
             _gameManager.gameOver();
             _spawnManager.killAllZombies();
         }
+    }
+    public void doubleDamage()
+    {
+        _Damage++;
+        _UImanager.updateAttackText(_Damage);
+        StartCoroutine(doubleDamagePowerDownRoutine());
+    }
+    public IEnumerator doubleDamagePowerDownRoutine()
+    {
+        yield return new WaitForSeconds(1);
+        _Damage--;
+        _UImanager.updateAttackText(_Damage);
     }
 }

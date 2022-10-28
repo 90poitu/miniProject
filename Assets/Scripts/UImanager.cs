@@ -15,6 +15,7 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _targetKillText;
     [SerializeField] private Text _winText;
     [SerializeField] private Text _pressAnyKeyToStartText;
+    [SerializeField] private Text _attackText;
     [SerializeField] private GameManager _gameManager;
     void Start()
     {
@@ -60,6 +61,10 @@ public class UImanager : MonoBehaviour
         text.text = zombieHp + " / " + slider.maxValue;
     }
 
+    public void updateAttackText(float damage)
+    {
+        _attackText.text = "Damage: " + damage;
+    }
     public void GameStart()
     {
         _pressAnyKeyToStartText.gameObject.SetActive(false);

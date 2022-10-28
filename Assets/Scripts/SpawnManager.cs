@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[]  _zombiePrefabs;
+    [SerializeField] private GameObject[] _powerups;
     [SerializeField] private Transform _ZombieContainer;
     [SerializeField] private float _spawnRate;
     [SerializeField] private bool _stopSpawning;
@@ -12,14 +13,11 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(ZombieSpawnRoutine());
     }
-    void Update()
-    {
-    }
     IEnumerator ZombieSpawnRoutine()
     {
         while (_stopSpawning == false)
         {
-            GameObject zombieSpawned = Instantiate(_zombiePrefabs[Random.Range(0, _zombiePrefabs.Length)], new Vector3(0f, .67f, .40f), Quaternion.identity);
+            GameObject zombieSpawned = Instantiate(_powerups[Random.Range(0, _powerups.Length)], new Vector3(0f, .67f, .40f), Quaternion.identity);
             zombieSpawned.transform.SetParent(_ZombieContainer);
             yield return new WaitForSeconds(_spawnRate);
         }
