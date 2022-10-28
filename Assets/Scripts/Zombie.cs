@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _speed = 2.5f;
+    [SerializeField] private float _speedOverTime;
+    [SerializeField] private float _speedOverTimeCooldown = 1.5f;
     [SerializeField] private float _hp = 10;
     [SerializeField] private UImanager _uiManager;
     [SerializeField] private Click _click;
@@ -25,7 +27,9 @@ public class Zombie : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(_speed * Time.deltaTime * Vector3.back);
+        randomSpeedOverTime();
+
+        transform.Translate((_speed + _speedOverTime) * Time.deltaTime * Vector3.back);
 
         if (transform.position.z < -10f)
         {
@@ -38,7 +42,6 @@ public class Zombie : MonoBehaviour
         _hp -= damage;
         _uiManager.updateSlider(_zombieSider, _hp);
         _uiManager.updateZombieText(_zombieHpText, _hp, _zombieSider);
-
         if (_hp < 0)
         {
             _click.UpdateKills();
@@ -57,6 +60,18 @@ public class Zombie : MonoBehaviour
             {
                 click.damagePlayer(_Damage);
             }
+        }
+    }
+    void randomSpeedOverTime()
+    {
+        if (_speedOverTimeCooldown <= 0)
+        {
+            _speedOverTime++;
+            _speedOverTimeCooldown = .5f;
+        }
+        else
+        {
+            _speedOverTimeCooldown = _speedOverTimeCooldown - Time.deltaTime;
         }
     }
 }

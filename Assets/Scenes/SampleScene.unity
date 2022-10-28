@@ -313,6 +313,7 @@ MonoBehaviour:
   _isGameOver: 0
   _uiManager: {fileID: 1654602826}
   _isPause: 0
+  _isStarted: 0
 --- !u!4 &259635178
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +398,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press "any" key to start
+  m_Text: Press B key to start
 --- !u!222 &410744874
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -766,7 +767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'Time: 0'
 --- !u!222 &1061340761
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: _hp
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7930507056588866094, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
+      propertyPath: _speed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7930507056588866095, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
       propertyPath: m_RootOrder
       value: 0
