@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _speed = 2.5f;
-    [SerializeField] private float _speedOverTime;
+    [SerializeField] private float _speedOverTimeStartCooldown;
     [SerializeField] private float _speedOverTimeCooldown = 1.5f;
     [SerializeField] private float _hp = 10;
     [SerializeField] private UImanager _uiManager;
@@ -29,7 +29,7 @@ public class Zombie : MonoBehaviour
     {
         randomSpeedOverTime();
 
-        transform.Translate((_speed + _speedOverTime) * Time.deltaTime * Vector3.back);
+        transform.Translate((_speed + _speedOverTimeStartCooldown) * Time.deltaTime * Vector3.back);
 
         if (transform.position.z < -10f)
         {
@@ -66,8 +66,7 @@ public class Zombie : MonoBehaviour
     {
         if (_speedOverTimeCooldown <= 0)
         {
-            _speedOverTime++;
-            _speedOverTimeCooldown = .5f;
+            _speedOverTimeStartCooldown++;
         }
         else
         {

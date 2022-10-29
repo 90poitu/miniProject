@@ -83,7 +83,7 @@ public class Click : MonoBehaviour
     }
     public void doubleDamage()
     {
-        _Damage++;
+        _Damage *= 2;
         _UImanager.updateAttackText(_Damage);
         StartCoroutine(doubleDamagePowerDownRoutine(_DamagePowerupExpireTime));
     }
@@ -94,7 +94,7 @@ public class Click : MonoBehaviour
     public IEnumerator doubleDamagePowerDownRoutine(float expireTime)
     {
         yield return new WaitForSeconds(expireTime);
-        _Damage--;
+        _Damage /= 2;
         _UImanager.update2xDamageTextDisable();
         _UImanager.updateAttackText(_Damage);
     }

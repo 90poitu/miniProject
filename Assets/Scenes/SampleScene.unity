@@ -553,7 +553,8 @@ MonoBehaviour:
   _ZombieContainer: {fileID: 776698186}
   _PowerupsContainer: {fileID: 530712553}
   _click: {fileID: 963194229}
-  _spawnRate: 2.5
+  _ZombieSpawnRate: 1.5
+  _PowerupSpawnRate: 4
   _stopSpawning: 0
 --- !u!4 &570086679
 Transform:
