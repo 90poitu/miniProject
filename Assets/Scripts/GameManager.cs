@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _isGameOver;
     [SerializeField] private UImanager _uiManager;
+    [SerializeField] private Click _click;
     [SerializeField] private bool _isPause;
     [SerializeField] private bool _isStarted;
+    [SerializeField] private float _priceToUpgrade;
     void Start()
     {
         isPause();
@@ -29,6 +31,10 @@ public class GameManager : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space) && _isPause && _isStarted)
         {
             isUnPause();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _click.upgradeNormalDamage((int)_priceToUpgrade);
         }
     }
 
@@ -55,5 +61,9 @@ public class GameManager : MonoBehaviour
     public void hasStarted()
     {
         _isStarted = true;
+    }
+    public void increaseUpgradePrice(float amountToIncrease)
+    {
+        _priceToUpgrade += amountToIncrease;
     }
 }

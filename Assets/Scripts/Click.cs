@@ -15,6 +15,8 @@ public class Click : MonoBehaviour
     [SerializeField] private int _kills;
     [SerializeField] private int _targetKillGoal = 20;
     [SerializeField] private float _DamagePowerupExpireTime = 0;
+
+    [SerializeField] private float _coinAmount;
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -42,7 +44,6 @@ public class Click : MonoBehaviour
                     case "Zombie":
                     Zombie zombie = hit.transform.GetComponent<Zombie>();
                     zombie.damageZombie(_Damage);
-                    _UImanager.updateIndicatorMessage(_Damage);
                      break;
                 }
             }
@@ -97,5 +98,37 @@ public class Click : MonoBehaviour
         _Damage /= 2;
         _UImanager.update2xDamageTextDisable();
         _UImanager.updateAttackText(_Damage);
+    }
+    public void upgradeNormalDamage(int amount)
+    {
+        if (_coinAmount > amount)
+        {
+            _Damage += amount;
+            _UImanager.updateAttackText(_Damage);
+            _coinAmount -= amount;
+            _UImanager.updateCoinsText(_coinAmount);
+            _UImanager.updateSuccessfullyUpgradedDamageIndicator(3);
+            _gameManager.increaseUpgradePrice(5);
+        }
+        else
+        {
+            _UImanager.updateNotEnoughCoinIndicator(amount);
+        }
+    }
+    public void addCoins(float coins)
+    {
+        float coinRandomAmount = Random.Range(2, 25);
+        _coinAmount += coinRandomAmount;
+        _UImanager.updateCoinIndicator(coinRandomAmount);
+    }
+    public void updateCoinsText()
+    {
+        float coinRandomAmount = Random.Range(2, 25);
+        addCoins(coinRandomAmount);
+        _UImanager.updateCoinsText(_coinAmount);
+    }
+    public void updateDamageIndicator()
+    {
+        _UImanager.updateDamageIndicator(_Damage);
     }
 }

@@ -16,6 +16,10 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _winText;
     [SerializeField] private Text _pressAnyKeyToStartText;
     [SerializeField] private Text _attackText;
+    [SerializeField] private Text _CoinsText;
+    [SerializeField] private Text _CoinsAddedText;
+    [SerializeField] private Text _notEnoughCoinText;
+    [SerializeField] private Text _successfullyUpgradedDamageText;
     [SerializeField] private Image _powerupElementsBackground;
     [SerializeField] private GameManager _gameManager;
     void Start()
@@ -26,7 +30,9 @@ public class UImanager : MonoBehaviour
             _pressRtoRestartText.gameObject.activeInHierarchy
             && _killAmountText.gameObject.activeInHierarchy && 
             _targetKillText.gameObject.activeInHierarchy &&
-            _winText.gameObject.activeInHierarchy && _powerupElementsBackground.gameObject.activeInHierarchy == false)
+            _winText.gameObject.activeInHierarchy && 
+            _powerupElementsBackground.gameObject.activeInHierarchy &&
+            _CoinsText.gameObject.activeInHierarchy == false)
         {
             enableAllText();
         }
@@ -47,11 +53,23 @@ public class UImanager : MonoBehaviour
     {
         _targetKillText.text = "Kill: " + currentKill + " / "+ targetGoal;
     }
-    public void updateIndicatorMessage(float damage)
+    public void updateDamageIndicator(float damage)
     {
         Text text = Instantiate(_scoreAddedText);
         text.transform.SetParent(_scoreContainer);
         text.text = "+ " + damage.ToString("f2");
+    }
+    public void updateCoinIndicator(float coins)
+    {
+        Text text = Instantiate(_CoinsAddedText);
+        text.transform.SetParent(_scoreContainer);
+        text.text = "<color=blue>+ " + coins.ToString("f2") + "</color>";
+    }
+    public void updateNotEnoughCoinIndicator(float coin)
+    {
+        Text text = Instantiate(_notEnoughCoinText);
+        text.transform.SetParent(_scoreContainer);
+        text.text = "<color=green>You need " + coin + " coin(s)</color>";
     }
     public void updateSlider(Slider slider, float SliderAmount)
     {
@@ -65,6 +83,16 @@ public class UImanager : MonoBehaviour
     public void updateAttackText(float damage)
     {
         _attackText.text = "Damage: " + damage;
+    }
+    public void updateCoinsText(float coinAmount)
+    {
+        _CoinsText.text = "Coins: " + coinAmount;
+    }
+    public void updateSuccessfullyUpgradedDamageIndicator(float damageGoal)
+    {
+        Text text = Instantiate(_successfullyUpgradedDamageText);
+        text.transform.SetParent(_scoreContainer);
+        text.text = "<color=green>Successfully upgraded dmg +" + damageGoal + "</color>";
     }
     public void update2xDamageTextEnable(float expireTime)
     {
@@ -118,6 +146,7 @@ public class UImanager : MonoBehaviour
         _targetKillText.gameObject.SetActive(false);
         _winText.gameObject.SetActive(false);
         _powerupElementsBackground.gameObject.SetActive(false);
+        _CoinsText.gameObject.SetActive(false);
     }
     public void enableAllText()
     {
@@ -129,5 +158,6 @@ public class UImanager : MonoBehaviour
         _targetKillText.gameObject.SetActive(true);
         _winText.gameObject.SetActive(true);
         _powerupElementsBackground.gameObject.SetActive(true);
+        _CoinsText.gameObject.SetActive(true);
     }
 }

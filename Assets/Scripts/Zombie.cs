@@ -11,6 +11,8 @@ public class Zombie : MonoBehaviour
     [SerializeField] private Click _click;
     [SerializeField] private Slider _zombieSider;
     [SerializeField] private Text _zombieHpText;
+    [SerializeField] private float _minCoins;
+    [SerializeField] private float _maxCoins;
     [SerializeField] private float _Damage = 2.5f;
     void OnEnable()
     {
@@ -35,13 +37,16 @@ public class Zombie : MonoBehaviour
 
     public void damageZombie(float damage)
     {
+        _click.updateDamageIndicator();
         _hp -= damage;
         _uiManager.updateSlider(_zombieSider, _hp);
         _uiManager.updateZombieText(_zombieHpText, _hp, _zombieSider);
+
         if (_hp < 0)
         {
             _click.UpdateKills();
             _click.targetGoal();
+            _click.updateCoinsText();
             Destroy(this.gameObject);
         }
     }
