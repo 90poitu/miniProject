@@ -66,9 +66,12 @@ public class UImanager : MonoBehaviour
     {
         _attackText.text = "Damage: " + damage;
     }
-    public void update2xDamageTextEnable()
+    public void update2xDamageTextEnable(float expireTime)
     {
         _powerupElementsBackground.gameObject.SetActive(true);
+        Text text = _powerupElementsBackground.transform.GetChild(0).GetComponent<Text>();
+
+        text.text = "2x damage " + "("+expireTime+" s)";
     }
     public void update2xDamageTextDisable()
     {

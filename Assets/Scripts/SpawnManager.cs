@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[]  _zombiePrefabs;
     [SerializeField] private GameObject[] _powerups;
     [SerializeField] private Transform _ZombieContainer;
+    [SerializeField] private Click _click;
+
     [SerializeField] private float _spawnRate;
     [SerializeField] private bool _stopSpawning;
     void Start()

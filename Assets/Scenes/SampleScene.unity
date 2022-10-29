@@ -521,6 +521,7 @@ MonoBehaviour:
   _powerups:
   - {fileID: 1279640911589031400, guid: 64ae3d754fe7a4e4ebfe0652368137db, type: 3}
   _ZombieContainer: {fileID: 776698186}
+  _click: {fileID: 963194229}
   _spawnRate: 2.5
   _stopSpawning: 0
 --- !u!4 &570086679
@@ -1013,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -681.01, y: -75}
+  m_AnchoredPosition: {x: -681.01, y: -135.37134}
   m_SizeDelta: {x: 99.5899, y: 27.5828}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1175614765
@@ -1130,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330.80496, y: 108.87135}
+  m_AnchoredPosition: {x: -330.80496, y: 48.5}
   m_SizeDelta: {x: 100, y: 27.583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1316594137

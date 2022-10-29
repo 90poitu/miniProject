@@ -7,9 +7,11 @@ public class powerup : MonoBehaviour
     [SerializeField] private float _speed = 3.5f;
     [SerializeField] private float _PowerupID;
     [SerializeField] private Click _click;
+    [SerializeField] private SpawnManager _spawnManager;
     void Start()
     {
         _click = GameObject.Find("Main Camera").GetComponent<Click>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
     void Update()
     {
@@ -29,6 +31,7 @@ public class powerup : MonoBehaviour
             {
                 case 0:
                     _click.doubleDamage();
+                    _click.update2xDamageExpireTime();
                     break;
                 case 1:
                     Debug.Log("Powerup 1");

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Click : MonoBehaviour
 {
@@ -84,8 +85,11 @@ public class Click : MonoBehaviour
     {
         _Damage++;
         _UImanager.updateAttackText(_Damage);
-        _UImanager.update2xDamageTextEnable();
         StartCoroutine(doubleDamagePowerDownRoutine(_DamagePowerupExpireTime));
+    }
+    public void update2xDamageExpireTime()
+    {
+        _UImanager.update2xDamageTextEnable(_DamagePowerupExpireTime);
     }
     public IEnumerator doubleDamagePowerDownRoutine(float expireTime)
     {
