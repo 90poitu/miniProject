@@ -5,8 +5,3 @@ The goal of this game is to kill enemies that are heading your way. The only way
 ### ✕ RECENTLY ADDED
 - Powerups includes ***double damage***
 - Spawners
-
-### ✕ ***ENEMY APPROACHING***
-![Enemy approaching](https://github.com/90poitu/demo_game/blob/main/Screenshots/gameplay.png?raw=true)
-### ✕ ***FUNNY BUG***
-![Funny bug](https://raw.githubusercontent.com/90poitu/demo_game/main/Screenshots/233r.png)
