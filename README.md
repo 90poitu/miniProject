@@ -4,5 +4,5 @@
 ## ENEMY APPROACHING
 ![Enemy approaching](https://github.com/90poitu/demo_game/blob/main/Screenshots/gameplay.png?raw=true)
 ## FUNNY BUG
-![Enemy approaching](https://github.com/90poitu/demo_game/blob/main/Screenshots/gameplay.png?raw=true)
+![Funny bug](https://raw.githubusercontent.com/90poitu/demo_game/main/Screenshots/233r.png)
 #### Created by Clarence
