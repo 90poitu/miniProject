@@ -5,3 +5,5 @@ The goal of this game is to kill enemies that are heading your way. The only way
 ### ✕ RECENTLY ADDED
 - Powerups includes ***double damage***
 - Spawners
+- Different type of zombies
+- Upgradeable damage powerup
