@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _speed = 2.5f;
-    [SerializeField] private float _speedOverTimeStartCooldown;
+    [SerializeField] private float _speedOverTimeStartCooldown; // new
     [SerializeField] private float _speedOverTimeCooldown = 1.5f;
     [SerializeField] private float _hp = 10;
     [SerializeField] private UImanager _uiManager;
