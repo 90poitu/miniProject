@@ -57,7 +57,7 @@ public class Click : MonoBehaviour
 
         if (_Health < 1)
         {
-            _spawnManager.stopSpawningZombies();
+            _spawnManager.stopSpawning();
             StartCoroutine(_UImanager.gameOverFlickeringTextRoutine());
             _gameManager.gameOver();
             _spawnManager.killAllZombies();
@@ -75,7 +75,7 @@ public class Click : MonoBehaviour
 
         if (_kills >= _targetKillGoal)
         {
-            _spawnManager.stopSpawningZombies();
+            _spawnManager.stopSpawning();
             StartCoroutine(_UImanager.GameWinTextFlickeringRoutine());
             _gameManager.gameOver();
             _spawnManager.killAllZombies();
