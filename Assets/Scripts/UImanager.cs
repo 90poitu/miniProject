@@ -16,6 +16,7 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _winText;
     [SerializeField] private Text _pressAnyKeyToStartText;
     [SerializeField] private Text _attackText;
+    [SerializeField] private Image _powerupElementsBackground;
     [SerializeField] private GameManager _gameManager;
     void Start()
     {
@@ -25,7 +26,7 @@ public class UImanager : MonoBehaviour
             _pressRtoRestartText.gameObject.activeInHierarchy
             && _killAmountText.gameObject.activeInHierarchy && 
             _targetKillText.gameObject.activeInHierarchy &&
-            _winText.gameObject.activeInHierarchy == false)
+            _winText.gameObject.activeInHierarchy && _powerupElementsBackground.gameObject.activeInHierarchy == false)
         {
             enableAllText();
         }
@@ -64,6 +65,14 @@ public class UImanager : MonoBehaviour
     public void updateAttackText(float damage)
     {
         _attackText.text = "Damage: " + damage;
+    }
+    public void update2xDamageTextEnable()
+    {
+        _powerupElementsBackground.gameObject.SetActive(true);
+    }
+    public void update2xDamageTextDisable()
+    {
+        _powerupElementsBackground.gameObject.SetActive(false);
     }
     public void GameStart()
     {
@@ -105,6 +114,7 @@ public class UImanager : MonoBehaviour
         _killAmountText.gameObject.SetActive(false);
         _targetKillText.gameObject.SetActive(false);
         _winText.gameObject.SetActive(false);
+        _powerupElementsBackground.gameObject.SetActive(false);
     }
     public void enableAllText()
     {
@@ -115,5 +125,6 @@ public class UImanager : MonoBehaviour
         _killAmountText.gameObject.SetActive(true);
         _targetKillText.gameObject.SetActive(true);
         _winText.gameObject.SetActive(true);
+        _powerupElementsBackground.gameObject.SetActive(true);
     }
 }

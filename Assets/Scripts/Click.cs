@@ -13,6 +13,7 @@ public class Click : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private int _kills;
     [SerializeField] private int _targetKillGoal = 20;
+    [SerializeField] private float _DamagePowerupExpireTime = 0;
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -83,12 +84,14 @@ public class Click : MonoBehaviour
     {
         _Damage++;
         _UImanager.updateAttackText(_Damage);
-        StartCoroutine(doubleDamagePowerDownRoutine());
+        _UImanager.update2xDamageTextEnable();
+        StartCoroutine(doubleDamagePowerDownRoutine(_DamagePowerupExpireTime));
     }
-    public IEnumerator doubleDamagePowerDownRoutine()
+    public IEnumerator doubleDamagePowerDownRoutine(float expireTime)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(expireTime);
         _Damage--;
+        _UImanager.update2xDamageTextDisable();
         _UImanager.updateAttackText(_Damage);
     }
 }
