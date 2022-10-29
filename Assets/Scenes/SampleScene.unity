@@ -548,6 +548,8 @@ MonoBehaviour:
   _zombiePrefabs:
   - {fileID: 7930507056588866091, guid: 3a4469721b945f14e874c99e29eaa0c1, type: 3}
   - {fileID: 7588913650565536801, guid: 7c4f385405976d24d83cea0cd4e4ab51, type: 3}
+  - {fileID: 4959950953673533892, guid: a3ed1227d22de0f41b8ff13c20be2ce5, type: 3}
+  - {fileID: 568486400878654931, guid: c3119d62033fb6f4388223fe63a6293a, type: 3}
   _powerups:
   - {fileID: 1279640911589031400, guid: 64ae3d754fe7a4e4ebfe0652368137db, type: 3}
   _ZombieContainer: {fileID: 776698186}
@@ -876,7 +878,7 @@ MonoBehaviour:
   _spawnManager: {fileID: 570086678}
   _gameManager: {fileID: 259635177}
   _kills: 0
-  _targetKillGoal: 3
+  _targetKillGoal: 100
   _DamagePowerupExpireTime: 1.3
 --- !u!65 &963194230
 BoxCollider:
