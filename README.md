@@ -5,7 +5,7 @@ The goal of this game is to kill enemies that are heading your way. The only way
 ### Screenshot 1
 ![Character customize 1](https://raw.githubusercontent.com/90poitu/miniProject/main/Screenshots/23erddd.png)
 ### Screenshot 2
-![Character customize 2](https://github.com/90poitu/Simple-character-customize/blob/main/Assets/Screenshots/character%202.png?raw=true)
+![Character customize 2](https://github.com/90poitu/miniProject/blob/main/Screenshots/23edd.png?raw=true)
 ### Screenshot 3
 ![Character cusomize 3](https://github.com/90poitu/Simple-character-customize/blob/main/Assets/Screenshots/character%203.png?raw=true)
 
