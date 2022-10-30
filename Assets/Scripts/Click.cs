@@ -17,7 +17,6 @@ public class Click : MonoBehaviour
     [SerializeField] private float _DamagePowerupExpireTime = 0;
 
     [SerializeField] private float _coinAmount;
-    [SerializeField] private float _upgradeDamageAmount;
 
     void Start()
     {
@@ -25,7 +24,6 @@ public class Click : MonoBehaviour
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _UImanager.updateHealth(_Health);
         _UImanager.updateAttackText(_Damage);
-        _upgradeDamageAmount += _Damage;
         targetGoal();
     }
     void Update()
@@ -107,7 +105,6 @@ public class Click : MonoBehaviour
         if (_coinAmount >= amount)
         {
             _Damage += 3;
-            _upgradeDamageAmount += 3;
             _UImanager.updateAttackText(_Damage);
             _coinAmount -= amount;
             _UImanager.updateCoinsText(_coinAmount);
@@ -134,9 +131,5 @@ public class Click : MonoBehaviour
     public void updateDamageIndicator()
     {
         _UImanager.updateDamageIndicator(_Damage);
-    }
-    public void updateUpgradeDamageText()
-    {
-        _UImanager.updateUpgradeDamageText(_Damage, _upgradeDamageAmount);
     }
 }
