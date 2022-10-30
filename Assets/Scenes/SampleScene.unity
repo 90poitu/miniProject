@@ -896,10 +896,9 @@ MonoBehaviour:
   _spawnManager: {fileID: 570086678}
   _gameManager: {fileID: 259635177}
   _kills: 0
-  _targetKillGoal: 100
+  _targetKillGoal: 25
   _DamagePowerupExpireTime: 1.3
   _coinAmount: 0
-  _upgradeDamageAmount: 3
 --- !u!65 &963194230
 BoxCollider:
   m_ObjectHideFlags: 0
