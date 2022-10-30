@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
         {
             _click.upgradeNormalDamage((int)_priceToUpgrade);
         }
+        else
+        {
+            _click.updateUpgradeDamageText();
+        }
     }
 
     public void gameOver()

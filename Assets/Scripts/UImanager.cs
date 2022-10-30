@@ -20,6 +20,7 @@ public class UImanager : MonoBehaviour
     [SerializeField] private Text _CoinsAddedText;
     [SerializeField] private Text _notEnoughCoinText;
     [SerializeField] private Text _successfullyUpgradedDamageText;
+    [SerializeField] private Text _nextUphgradeDetailsText;
     [SerializeField] private Image _powerupElementsBackground;
     [SerializeField] private GameManager _gameManager;
     void Start()
@@ -70,6 +71,10 @@ public class UImanager : MonoBehaviour
         Text text = Instantiate(_notEnoughCoinText);
         text.transform.SetParent(_scoreContainer);
         text.text = "<color=green>You need " + coin + " coin(s)</color>";
+    }
+    public void updateUpgradeDamageText(float currentDamage, float damageGoal)
+    {
+        _nextUphgradeDetailsText.text = currentDamage + " DMG > " + damageGoal + " DMG";
     }
     public void updateSlider(Slider slider, float SliderAmount)
     {
