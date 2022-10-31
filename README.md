@@ -1,6 +1,6 @@
 # Introduction to my mini project
 
-The goal of this game is to kill enemies that are heading your way. The only way to kill them is how fast you are clicking your mouse. I do have plans to work on this game further but I will see how it goes.
+The goal is to eliminate enemies that are heading your way. You could also get some boosters to help you along the way. Booster / Upgrade is a good way to increase your current damage. Once you've collected this booster, you will have only have around 2 secs before it deactivate.
 
 ### GAMEPLAY
 ![Character customize 1](https://raw.githubusercontent.com/90poitu/miniProject/main/Screenshots/23erddd.png)
